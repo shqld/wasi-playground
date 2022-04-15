@@ -3,7 +3,7 @@ BIN_NAME := wasi-playground
 NATIVE_BIN := ./target/release/$(BIN_NAME)
 WASM_BIN := ./target/wasm32-wasi/release/$(BIN_NAME).wasm
 
-WARMUP := 100
+WARMUP := 10
 
 benchmark: $(NATIVE_BIN) $(WASM_BIN)
 	hyperfine --warmup $(WARMUP) '$(NATIVE_BIN)' 'wasmtime $(WASM_BIN)'
